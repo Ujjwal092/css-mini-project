@@ -12,7 +12,7 @@
 }
 
 .container {
-  position: relative;
+  position: relative; /* Parent reference point ban gaya */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,4 +38,5 @@
   width: 100%;
   /* make sure the images cover the entire container */
   z-index: -1;
+  /* 👉 Agar z-index: -1 na dete, to background/foreground images content ko cover kar lete (text, button sab hide ho jaata) */
 }
