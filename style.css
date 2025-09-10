@@ -32,7 +32,8 @@
 
 .background,
 .foreground {
-  position: absolute;
+  position: absolute; /* Apne parent (.container) ke andar fix ho gaye */
+
   /* so that the images stack on top of each other */
   height: 100%;
   width: 100%;
