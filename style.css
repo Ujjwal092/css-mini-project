@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* content ke size ko padding aur border se alag rakhta hai */
 }
 
 #wrapper {
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   perspective: 10px;
 }
 
@@ -16,7 +17,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   transform-style: preserve-3d;
 }
 
@@ -26,18 +28,79 @@
 
 .foreground {
   transform: translateZ(-20px) scale(3);
-  /*translateZ will move the image closer to the viewer */
+  /*translateZ will move the image further  to the viewer */
   /* scale will make the image larger to cover the gap created by translateZ */
 }
 
 .background,
 .foreground {
-  position: absolute; /* Apne parent (.container) ke andar fix ho gaye */
-
+  position: absolute;
   /* so that the images stack on top of each other */
   height: 100%;
   width: 100%;
   /* make sure the images cover the entire container */
   z-index: -1;
-  /* 👉 Agar z-index: -1 na dete, to background/foreground images content ko cover kar lete (text, button sab hide ho jaata) */
+  object-fit: cover;
+  /*Agar z-index: -1 na dete, to background/foreground images content ko cover kar lete (text, button sab hide ho jaata) */
+}
+h1 {
+  color: white;
+  position: absolute;
+  font-size: 10rem;
+  font-family: poppins, sans-serif;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  /* to center the heading horizontally 
+  -50% means moving the element left by half of its own width */
+  letter-spacing: 4px;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+section {
+  position: relative;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding: 5rem 0;
+  z-index: 1;
+}
+.secHeading {
+  font-size: 5rem;
+  padding: 0 10rem;
+  font-family: poppins, sans-serif;
+}
+.text {
+  font-size: 1.5rem;
+  padding: 0rem 10rem;
+  margin: 5rem 0;
+}
+.bg {
+  position: relative;
+  width: 100%;
+  background-attachment: fixed;
+  /* ye property background image ko fixed kar deti hai, jab hum scroll karte hain to image move nahi karti */
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+.desc {
+  position: absolute;
+  background-color: white;
+  padding: 0.5 2.5rem;
+  margin-bottom: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: poppins, sans-serif;
+}
+.bg1 {
+  background-image: url(sport-1.jpg);
+}
+.bg2 {
+  background-image: url(sport-2.jpg);
+}
+.bg3 {
+  background-image: url(sport-3.jpg);
 }
